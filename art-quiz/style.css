@@ -278,7 +278,7 @@ button {
   flex: 0 0 auto;
 }
 
-.settings-btn {
+.index .settings-btn {
   width: 32px;
   height: 32px;
   border: none;
@@ -431,7 +431,7 @@ button {
     background: url(./images/769-1920/theme.jpg) no-repeat center;
   }
 
-  .settings .settings-btn {
+  .index .settings-btn {
     margin-top: 70px;
     margin-right: 70px;
   }
@@ -909,6 +909,9 @@ input:checked + .slider:before {
 @media (min-width: 769px) {
   .footer-menu {
     display: none;
+  }
+  .categories .settings-btn {
+    margin-top: 80px;
   }
 
   .grid-container {

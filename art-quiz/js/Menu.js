@@ -34,7 +34,6 @@ function pagesMenu() {
   showPage(picturesBtn, categories);
   showPage(categoriesBtn, question);
 }
-pagesMenu();
 
 async function getPictures() {
   const pictures = "images-en.json";
@@ -42,7 +41,4 @@ async function getPictures() {
   const data = await res.json();
 }
 
-//Создаем категории
-function createCategories(arr) {
-  console.log();
-}
+pagesMenu();
