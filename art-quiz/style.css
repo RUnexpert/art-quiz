@@ -806,6 +806,11 @@ input:checked + .slider:before {
   margin: 0 auto;
 }
 
+.header-link:hover {
+  color: #ffbca2;
+  opacity: 0.8;
+}
+
 .categories-title {
   font-size: 42px;
   line-height: 60px;
@@ -828,6 +833,10 @@ input:checked + .slider:before {
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   padding: 10px;
+}
+
+#categories-title {
+  padding-bottom: 10px;
 }
 
 .categories-btn {
