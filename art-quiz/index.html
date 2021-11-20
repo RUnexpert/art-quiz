@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>art-quiz</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="index page">
+      <header class="header">
+        <button class="settings-btn" id="settings-btn"></button>
+      </header>
+      <main class="main">
+        <h1 class="title">Art Quiz</h1>
+        <div class="buttons-wrapper">
+          <button class="artist-quiz" id="artist-quiz-btn">Artist quiz</button>
+          <button class="pictures-quiz" id="pictures-quiz-btn">
+            Pictures quiz
+          </button>
+        </div>
+      </main>
+      <footer class="footer">
+        <ul class="footer-list">
+          <li><div class="rsschool-logo"></div></li>
+          <li><span>App developer: RUnexpert</span></li>
+          <li>2021</li>
+        </ul>
+      </footer>
+    </div>
+    <!-- settings page start -->
+    <div class="settings hide page">
+      <header class="header">
+        <button class="main-page-btn" id="main-page-btn"></button>
+        <h2 class="setting-title">Settings</h2>
+      </header>
+      <main class="main">
+        <div class="settings-wrapper">
+          <div class="volume-wrapper">
+            <div class="volume-container">
+              <span class="volume-title">Volume</span>
+              <div class="volume-slider">
+                <input
+                  type="range"
+                  min="1"
+                  max="100"
+                  value="50"
+                  class="volume"
+                  id="volume"
+                />
+              </div>
+              <div class="volume-btn-container">
+                <button class="mute"></button>
+                <button class="unmute"></button>
+              </div>
+            </div>
+          </div>
+          <span class="time-settings-title">Time game</span>
+          <div class="time-game-container">
+            <span class="settings-toggle" id="settings-toggle">On</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <span class="time-to-answer-title">Time to answer</span>
+          <div class="time-input-container">
+            <button class="minus-time-btn">-</button>
+            <input type="number" class="time-input" value="20" />
+            <button class="plus-time-btn">+</button>
+          </div>
+        </div>
+
+        <div class="settings-buttons-container">
+          <button class="settings-default">Default</button>
+          <button class="settings-save">Save</button>
+        </div>
+      </main>
+      <footer class="footer">
+        <ul class="footer-list">
+          <li><div class="rsschool-logo"></div></li>
+          <li><span>App developer: RUnexpert</span></li>
+          <li>2021</li>
+        </ul>
+      </footer>
+    </div>
+    <!-- settings page end-->
+    <!-- categories page start-->
+    <div class="categories hide page">
+      <header class="header">
+        <div class="header-container">
+          <h1 class="categories-title"><span class="art">Art</span> Quiz</h1>
+          <ul class="header-list">
+            <li><a class="header-link" href="">Home</a></li>
+            <li>
+              <a class="header-link" href="">Categories</a>
+            </li>
+            <li><a class="header-link" href="">Score</a></li>
+          </ul>
+          <button class="settings-btn" id="settings-btn"></button>
+        </div>
+      </header>
+      <main class="main">
+        <div class="main-container">
+          <a class="categories-subtitle">Categories</a>
+          <div class="grid-container">
+            <figure>
+              <figcaption id="categories-title">Portrait</figcaption>
+              <button class="categories-btn">
+                <img src="./images/test.jpg" alt="" class="categories-pic" />
+              </button>
+            </figure>
+            <figure>
+              <figcaption id="categories-title">Portrait</figcaption>
+              <img src="./images/test.jpg" alt="" class="categories-pic" />
+            </figure>
+            <figure>
+              <figcaption id="categories-title">Portrait</figcaption>
+              <img src="./images/test.jpg" alt="" class="categories-pic" />
+            </figure>
+            <figure>
+              <figcaption id="categories-title">Portrait</figcaption>
+              <img src="./images/test.jpg" alt="" class="categories-pic" />
+            </figure>
+            <figure>
+              <figcaption id="categories-title">Portrait</figcaption>
+              <img src="./images/test.jpg" alt="" class="categories-pic" />
+            </figure>
+            <figure>
+              <figcaption id="categories-title">Portrait</figcaption>
+              <img src="./images/test.jpg" alt="" class="categories-pic" />
+            </figure>
+            <figure>
+              <figcaption id="categories-title">Portrait</figcaption>
+              <img src="./images/test.jpg" alt="" class="categories-pic" />
+            </figure>
+          </div>
+        </div>
+      </main>
+      <footer class="footer-menu">
+        <ul class="footer-menu-list">
+          <li class="footer-menu-item">
+            <button class="footer-btn home">Home</button>
+          </li>
+          <li class="footer-menu-item">
+            <button class="footer-btn categories">Categories</button>
+          </li>
+          <li class="footer-menu-item">
+            <button class="footer-btn score">Score</button>
+          </li>
+        </ul>
+      </footer>
+    </div>
+    <!-- categories page end-->
+    <!-- question page start-->
+    <div class="question-container hide page">
+      <div class="timer">
+        <button class="timer-close-btn"></button>
+        <span class="percent">
+          <span style="width: 70%"></span>
+        </span>
+        <span class="timer-time">3:48</span>
+      </div>
+      <h1 class="question-title" id="question">
+        Who is the author of this picture?
+      </h1>
+      <div class="picture-container">
+        <img src="./images/question-test.jpg" alt="" class="question-pic" />
+      </div>
+
+      <div class="question-buttons">
+        <button class="question-button">Button text</button>
+        <button class="question-button">Button text</button>
+        <button class="question-button">Button text</button>
+        <button class="question-button">Button text</button>
+      </div>
+      <footer class="footer">
+        <ul class="footer-list">
+          <li><div class="rsschool-logo"></div></li>
+          <li><span>App developer: RUnexpert</span></li>
+          <li>2021</li>
+        </ul>
+      </footer>
+    </div>
+    <!-- question page end-->
+    <!-- modal quit-game start-->
+    <div class="modal-quit hide">
+      <button class="quit-game"></button>
+      <div class="modal-question">Do you really want to quit the game?</div>
+      <div class="modal-buttons">
+        <button id="modal-cancel">Cancel</button>
+        <button id="modal-yes">Yes</button>
+      </div>
+    </div>
+    <!-- modal quit-game end-->
+    <script src="./js/Menu.js"></script>
+  </body>
+</html>
