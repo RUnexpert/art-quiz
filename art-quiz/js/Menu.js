@@ -82,6 +82,7 @@ function pagesMenu() {
         arrAnswers.push(answer);
       }
       arrAnswers = shuffle(arrAnswers);
+
       // Заполняем кнопки авторами
       let i = 0;
       for (let answerBtn of answerBtns) {
@@ -89,6 +90,7 @@ function pagesMenu() {
         i++;
       }
 
+      // Массив с результатами boolean
       let booleanArrayOfAnswers = [];
       for (let answerBtn of answerBtns) {
         answerBtn.addEventListener("click", () => {
@@ -97,13 +99,38 @@ function pagesMenu() {
           } else {
             booleanArrayOfAnswers.push(true);
           }
+          step++;
+          quizPicture.src = `./images/image-data/full/${quizArray[step].imageNum}full.jpg`;
+
+          // ******************************* */
+          // Создаем массив с 4 вариантами ответа и перемешиваем его
+          let arrAnswers = [];
+          arrAnswers.push(quizArray[step].author);
+          console.log(arrAnswers);
+          for (let i = 0; i < 3; i++) {
+            let answer = createAuthor();
+            while (arrAnswers.indexOf(answer) != -1) {
+              answer = createAuthor();
+            }
+            arrAnswers.push(answer);
+          }
+          arrAnswers = shuffle(arrAnswers);
+
+          // Заполняем кнопки авторами
+          let i = 0;
+          for (let answerBtn of answerBtns) {
+            answerBtn.textContent = arrAnswers[i];
+            i++;
+          }
+          //******************************** */
+
           console.log(booleanArrayOfAnswers);
         });
       }
     });
   }
 }
-
+// Получаем картинки из JSON и разбиваем на два массива
 async function getPictures() {
   const pictures = "images-en.json";
   const res = await fetch(pictures);
@@ -116,7 +143,7 @@ async function getPictures() {
   }
   return { artist: arr.slice(0, 12), pictures: arr.slice(12, 24) };
 }
-// console.log(getPictures());
+
 pagesMenu();
 
 // Шаг 1 Добавить id ко всем кнопкам.✔
@@ -126,6 +153,6 @@ pagesMenu();
 // И вывести их в ответах на вопросы.✔
 // Шаг 5 Сделать клики по вариантам ответа и проверять правильного автора. ✔
 // Шаг 6 Записывать в массив results boolean true | false ответа.✔
-// Шаг 7 Перекидывать на следующий вопрос.
-// Опц. Разбить на несколько файлов. Установить вебпак.
-// 15:00
+// Шаг 7 Перекидывать на следующий вопрос. ?
+// Установить вебпак.✔
+// Опц. Разбить на несколько файлов. x
