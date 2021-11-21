@@ -1013,6 +1013,8 @@ input:checked + .slider:before {
 
 .question-pic {
   border-radius: 20px;
+  width: 825px;
+  height: 498px;
 }
 
 .question-buttons {
