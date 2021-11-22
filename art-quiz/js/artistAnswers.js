@@ -1,10 +1,10 @@
 import { randomInteger, shuffle } from "./random";
 
 let createAuthor = (quizArray) => {
-  return quizArray[randomInteger(0, 9)].imageNum;
+  return quizArray[randomInteger(0, 9)].author;
 };
 
-export function createPicturesAnswers(pictures, quizArray, rightAnswer) {
+export function createArtistAnswers(answerBtns, quizArray, rightAnswer) {
   // Создаем массив с 4 вариантами ответа и перемешиваем его
   let arrAnswers = [];
   arrAnswers.push(rightAnswer);
@@ -19,8 +19,8 @@ export function createPicturesAnswers(pictures, quizArray, rightAnswer) {
 
   // Заполняем кнопки авторами
   let i = 0;
-  for (let picture of pictures) {
-    picture.src = `./images/image-data/img/${arrAnswers[i]}.jpg`;
+  for (let answerBtn of answerBtns) {
+    answerBtn.textContent = arrAnswers[i];
     i++;
   }
 }

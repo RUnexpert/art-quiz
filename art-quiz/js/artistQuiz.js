@@ -1,9 +1,10 @@
-import { createAnswers } from "./answers";
-import { createPicturesAnswers } from "./picturesAnswer";
+import { createArtistAnswers } from "./artistAnswers";
+import { createPicturesAnswers } from "./picturesAnswers";
 import { getPictures } from "./pictures";
 
 let quizArray;
 let step = 0;
+let score = 0;
 
 let answerBtns = document.querySelectorAll(".question-button-text");
 let answerBtnsPictres = document.querySelectorAll(".question-button-picture");
@@ -21,13 +22,7 @@ export function createArtistQuiz(categoriesBtns, showPage) {
       // Путь первой картинки
       quizPicture.src = `./images/image-data/full/${quizArray[step].imageNum}full.jpg`;
 
-      createAnswers(answerBtns, quizArray, quizArray[step].author);
-
-      createPicturesAnswers(
-        answerBtnsPictres,
-        quizArray,
-        quizArray[step].imageNum
-      );
+      createArtistAnswers(answerBtns, quizArray, quizArray[step].author);
 
       // Массив с результатами boolean
       let booleanArrayOfAnswers = [];
@@ -46,18 +41,11 @@ export function createArtistQuiz(categoriesBtns, showPage) {
             dots[step].classList.add("red");
           }
 
+          score = booleanArrayOfAnswers.filter(Boolean).length;
           step++;
           quizPicture.src = `./images/image-data/full/${quizArray[step].imageNum}full.jpg`;
 
-          createAnswers(answerBtns, quizArray, quizArray[step].author);
-
-          createPicturesAnswers(
-            answerBtnsPictres,
-            quizArray,
-            quizArray[step].imageNum
-          );
-
-          // console.log(booleanArrayOfAnswers);
+          createArtistAnswers(answerBtns, quizArray, quizArray[step].author);
         });
       }
     });
