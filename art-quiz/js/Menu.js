@@ -1,13 +1,21 @@
 "use strict";
+import { createAnswers } from "./answers";
+import { createPicturesAnswers } from "./picturesAnswer";
+import { getPictures } from "./pictures";
+import { createArtistQuiz } from "./artistQuiz";
 
 // Переключение страниц
 function pagesMenu() {
+  let quizButtons = document.querySelectorAll(".quiz-button");
   let settingsBtns = document.querySelectorAll(".settings-btn");
   let artistBtn = document.getElementById("artist-quiz-btn");
   let picturesBtn = document.getElementById("pictures-quiz-btn");
   let mainPageBtn = document.getElementById("main-page-btn");
   let categoriesBtns = document.querySelectorAll(".categories-btn");
-  let answerBtns = document.querySelectorAll(".question-button");
+
+  let answerBtns = document.querySelectorAll(".question-button-text");
+  let answerBtnsPictres = document.querySelectorAll(".question-button-picture");
+  let dots = document.querySelectorAll(".dot-bg");
 
   let pages = document.querySelectorAll(".page");
   let index = document.querySelector(".index");
@@ -16,6 +24,17 @@ function pagesMenu() {
   let question = document.querySelector(".question-container");
 
   let quizPicture = document.querySelector(".question-pic");
+
+  let pictures = document.querySelectorAll(".question-button-picture-pic");
+
+  let typeOfQuiz;
+
+  for (let quizButton of quizButtons) {
+    quizButton.addEventListener("click", () => {
+      typeOfQuiz = quizButton.dataset.category;
+      console.log(typeOfQuiz);
+    });
+  }
 
   function showPage(button, page, onEnter) {
     button.addEventListener("click", function (event) {
@@ -29,6 +48,7 @@ function pagesMenu() {
     });
   }
 
+  // Переходы к настройкам
   for (let settingsBtn of settingsBtns) {
     showPage(settingsBtn, settings);
   }
@@ -37,122 +57,67 @@ function pagesMenu() {
   showPage(artistBtn, categories);
   showPage(picturesBtn, categories);
 
-  let quizArray;
-  let step = 0;
+  createArtistQuiz(categoriesBtns, showPage);
+  // let quizArray;
+  // let step = 0;
 
-  for (let categoriesBtn of categoriesBtns) {
-    showPage(categoriesBtn, question, async (elem) => {
-      const id = elem.dataset.id;
-      const pictures = await getPictures();
-      quizArray = pictures.artist[id];
-      // console.log(pictures.artist[id]);
-      // console.log(quizArray[0].imageNum);
-      // Путь первой картинки
-      quizPicture.src = `./images/image-data/full/${quizArray[step].imageNum}full.jpg`;
+  // for (let categoriesBtn of categoriesBtns) {
+  //   showPage(categoriesBtn, question, async (elem) => {
+  //     const id = elem.dataset.id;
+  //     const pictures = await getPictures();
+  //     quizArray = pictures.artist[id];
 
-      // Массив с авторами
-      let authorArr = [];
-      for (let elem of pictures.artist[id]) {
-        authorArr.push(elem.author);
-      }
+  //     // Путь первой картинки
+  //     quizPicture.src = `./images/image-data/full/${quizArray[step].imageNum}full.jpg`;
 
-      // Функция создания случайного числа
-      function randomInteger(min, max) {
-        let rand = min - 0.5 + Math.random() * (max - min + 1);
-        return Math.round(rand);
-      }
-      // Функция перемешать массив
-      function shuffle(array) {
-        return array.sort(() => Math.random() - 0.5);
-      }
+  //     createAnswers(answerBtns, quizArray, quizArray[step].author);
 
-      let createAuthor = () => {
-        return quizArray[randomInteger(0, 9)].author;
-      };
+  //     createPicturesAnswers(
+  //       answerBtnsPictres,
+  //       quizArray,
+  //       quizArray[step].imageNum
+  //     );
 
-      // Создаем массив с 4 вариантами ответа и перемешиваем его
-      let arrAnswers = [];
-      arrAnswers.push(quizArray[step].author);
-      console.log(arrAnswers);
-      for (let i = 0; i < 3; i++) {
-        let answer = createAuthor();
-        while (arrAnswers.indexOf(answer) != -1) {
-          answer = createAuthor();
-        }
-        arrAnswers.push(answer);
-      }
-      arrAnswers = shuffle(arrAnswers);
+  //     // Массив с результатами boolean
+  //     let booleanArrayOfAnswers = [];
+  //     for (let answerBtn of answerBtns) {
+  //       answerBtn.addEventListener("click", () => {
+  //         if (answerBtn.textContent !== quizArray[step].author) {
+  //           booleanArrayOfAnswers.push(false);
+  //         } else {
+  //           booleanArrayOfAnswers.push(true);
+  //         }
 
-      // Заполняем кнопки авторами
-      let i = 0;
-      for (let answerBtn of answerBtns) {
-        answerBtn.textContent = arrAnswers[i];
-        i++;
-      }
+  //         // Красим точки в цвет
+  //         if (booleanArrayOfAnswers[step]) {
+  //           dots[step].classList.add("green");
+  //         } else {
+  //           dots[step].classList.add("red");
+  //         }
 
-      // Массив с результатами boolean
-      let booleanArrayOfAnswers = [];
-      for (let answerBtn of answerBtns) {
-        answerBtn.addEventListener("click", () => {
-          if (answerBtn.textContent !== quizArray[step].author) {
-            booleanArrayOfAnswers.push(false);
-          } else {
-            booleanArrayOfAnswers.push(true);
-          }
-          step++;
-          quizPicture.src = `./images/image-data/full/${quizArray[step].imageNum}full.jpg`;
+  //         step++;
+  //         quizPicture.src = `./images/image-data/full/${quizArray[step].imageNum}full.jpg`;
 
-          // ******************************* */
-          // Создаем массив с 4 вариантами ответа и перемешиваем его
-          let arrAnswers = [];
-          arrAnswers.push(quizArray[step].author);
-          console.log(arrAnswers);
-          for (let i = 0; i < 3; i++) {
-            let answer = createAuthor();
-            while (arrAnswers.indexOf(answer) != -1) {
-              answer = createAuthor();
-            }
-            arrAnswers.push(answer);
-          }
-          arrAnswers = shuffle(arrAnswers);
+  //         createAnswers(answerBtns, quizArray, quizArray[step].author);
 
-          // Заполняем кнопки авторами
-          let i = 0;
-          for (let answerBtn of answerBtns) {
-            answerBtn.textContent = arrAnswers[i];
-            i++;
-          }
-          //******************************** */
+  //         createPicturesAnswers(
+  //           answerBtnsPictres,
+  //           quizArray,
+  //           quizArray[step].imageNum
+  //         );
 
-          console.log(booleanArrayOfAnswers);
-        });
-      }
-    });
-  }
-}
-// Получаем картинки из JSON и разбиваем на два массива
-async function getPictures() {
-  const pictures = "images-en.json";
-  const res = await fetch(pictures);
-  const data = await res.json();
-
-  let arr = [];
-
-  for (let i = 0; i < data.length; i += 10) {
-    arr.push(data.slice(i, i + 10));
-  }
-  return { artist: arr.slice(0, 12), pictures: arr.slice(12, 24) };
+  //         // console.log(booleanArrayOfAnswers);
+  //       });
+  //     }
+  //   });
+  // }
 }
 
 pagesMenu();
 
-// Шаг 1 Добавить id ко всем кнопкам.✔
-// Шаг 2 Поменять путь к картинке в коллбэке.✔
-// Шаг 3 Взять всех авторов 10 массива. Нужен массив с именами художников.✔
-// Шаг 4 Выбрать 3 варианта ответа из шага 3 и добавить к правильному и перемешать.✔
-// И вывести их в ответах на вопросы.✔
-// Шаг 5 Сделать клики по вариантам ответа и проверять правильного автора. ✔
-// Шаг 6 Записывать в массив results boolean true | false ответа.✔
-// Шаг 7 Перекидывать на следующий вопрос. ?
-// Установить вебпак.✔
-// Опц. Разбить на несколько файлов. x
+// Шаг 1 Добавить в index.html 10 кружков ✔
+// Шаг 2 Два класса для кружков. border-radius. Добавлять класс кружку в зав. от ответа.
+// Шаг 3 Через filter отфильтровать массив и вывести число правильных ответов. Вывод модального окна. Кнопка
+// Шаг 4 Local Storage. Запись и чтение.
+// Шаг 5 Раздел с картинами.
+// Опц. Разбить menu на несколько файлов. x

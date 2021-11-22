@@ -846,6 +846,11 @@ input:checked + .slider:before {
 
 .categories-pic {
   border-radius: 20px;
+  transition: 1s;
+}
+
+.categories-pic:hover {
+  transform: scale(1.1);
 }
 
 .categories .footer-menu {
@@ -1024,7 +1029,7 @@ input:checked + .slider:before {
   grid-gap: 10px;
 }
 
-.question-button {
+.question-button-text {
   width: 158px;
   height: 48px;
   background: none;
@@ -1034,13 +1039,13 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
-.question-button:hover {
+.question-button-text:hover {
   color: black;
   background: #ffbca2;
   border: 1px solid #ffbca2;
 }
 
-.question-button:active {
+.question-button-text:active {
   color: black;
   background: white;
 }
@@ -1077,7 +1082,7 @@ input:checked + .slider:before {
     justify-content: center;
   }
 
-  .question-button {
+  .question-button-text {
     width: 400px;
   }
 }
@@ -1197,3 +1202,72 @@ input:checked + .slider:before {
 }
 
 /* modal end */
+
+/* radio buttons */
+.controls {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0.5rem 2.5rem 0 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.dot-bg {
+  width: 1rem;
+  height: 1rem;
+  margin: 0.5rem auto;
+  background: white;
+  border: 3px solid white;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+input[name="radio"] {
+  visibility: hidden;
+  display: none;
+}
+
+.red {
+  background: #bf3030;
+  border: 3px solid #bf3030;
+}
+.green {
+  background: #248f40;
+  border: 3px solid #248f40;
+}
+/* radio buttons */
+
+.question-buttons-picture {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+
+  margin: 0 auto;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.question-button-picture {
+  /* width: auto;
+  height: auto; */
+  border: none;
+  border-radius: 20px;
+  background: rgba(rgba(58, 251, 32, 0.5), green, blue, alpha);
+}
+
+.question-button-picture-pic {
+  width: 540px;
+  height: auto;
+  background: none;
+  border: none;
+  border-radius: 20px;
+}

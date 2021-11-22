@@ -17,8 +17,18 @@
       <main class="main">
         <h1 class="title">Art Quiz</h1>
         <div class="buttons-wrapper">
-          <button class="artist-quiz" id="artist-quiz-btn">Artist quiz</button>
-          <button class="pictures-quiz" id="pictures-quiz-btn">
+          <button
+            class="artist-quiz quiz-button"
+            id="artist-quiz-btn"
+            data-category="artist"
+          >
+            Artist quiz
+          </button>
+          <button
+            class="pictures-quiz quiz-button"
+            id="pictures-quiz-btn"
+            data-category="pictures"
+          >
             Pictures quiz
           </button>
         </div>
@@ -245,7 +255,7 @@
       </footer>
     </div>
     <!-- categories page end-->
-    <!-- question page start-->
+    <!-- question artist page start-->
     <div class="question-container hide page">
       <div class="timer">
         <button class="timer-close-btn"></button>
@@ -261,11 +271,56 @@
         <img src="./images/question-test.jpg" alt="" class="question-pic" />
       </div>
 
+      <div class="dots-buttons">
+        <input type="radio" name="radio" id="m1" checked />
+        <input type="radio" name="radio" id="m2" />
+        <input type="radio" name="radio" id="m3" />
+        <input type="radio" name="radio" id="m4" />
+        <input type="radio" name="radio" id="m5" />
+        <input type="radio" name="radio" id="m6" />
+        <input type="radio" name="radio" id="m7" />
+        <input type="radio" name="radio" id="m8" />
+        <input type="radio" name="radio" id="m9" />
+        <input type="radio" name="radio" id="m10" />
+      </div>
+      <div class="controls">
+        <label for="m1" class="dot">
+          <div class="dot-bg d1"></div>
+        </label>
+        <label for="m2" class="dot">
+          <div class="dot-bg d2"></div>
+        </label>
+        <label for="m3" class="dot">
+          <div class="dot-bg d3"></div>
+        </label>
+        <label for="m4" class="dot">
+          <div class="dot-bg d4"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+      </div>
+
       <div class="question-buttons">
-        <button class="question-button">Button text</button>
-        <button class="question-button">Button text</button>
-        <button class="question-button">Button text</button>
-        <button class="question-button">Button text</button>
+        <button class="question-button-text">Button</button>
+        <button class="question-button-text">Button</button>
+        <button class="question-button-text">Button</button>
+        <button class="question-button-text">Button</button>
       </div>
       <footer class="footer">
         <ul class="footer-list">
@@ -275,7 +330,87 @@
         </ul>
       </footer>
     </div>
-    <!-- question page end-->
+    <!-- question artist page end-->
+    <!-- question pictures page start-->
+    <div class="question-pictures hide page">
+      <div class="timer">
+        <button class="timer-close-btn"></button>
+        <span class="percent">
+          <span style="width: 70%"></span>
+        </span>
+        <span class="timer-time">3:48</span>
+      </div>
+      <h1 class="question-title" id="question">
+        Which is Edvard Munch picture?
+      </h1>
+
+      <div class="question-buttons-picture">
+        <button class="question-button-picture">
+          <img class="question-button-picture-pic" src="" alt="" />
+        </button>
+        <button class="question-button-picture">
+          <img class="question-button-picture-pic" src="" alt="" />
+        </button>
+        <button class="question-button-picture">
+          <img class="question-button-picture-pic" src="" alt="" />
+        </button>
+        <button class="question-button-picture">
+          <img class="question-button-picture-pic" src="" alt="" />
+        </button>
+      </div>
+      <div class="dots-buttons">
+        <input type="radio" name="radio" id="m1" checked />
+        <input type="radio" name="radio" id="m2" />
+        <input type="radio" name="radio" id="m3" />
+        <input type="radio" name="radio" id="m4" />
+        <input type="radio" name="radio" id="m5" />
+        <input type="radio" name="radio" id="m6" />
+        <input type="radio" name="radio" id="m7" />
+        <input type="radio" name="radio" id="m8" />
+        <input type="radio" name="radio" id="m9" />
+        <input type="radio" name="radio" id="m10" />
+      </div>
+      <div class="controls">
+        <label for="m1" class="dot">
+          <div class="dot-bg d1"></div>
+        </label>
+        <label for="m2" class="dot">
+          <div class="dot-bg d2"></div>
+        </label>
+        <label for="m3" class="dot">
+          <div class="dot-bg d3"></div>
+        </label>
+        <label for="m4" class="dot">
+          <div class="dot-bg d4"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+        <label for="m5" class="dot">
+          <div class="dot-bg d5"></div>
+        </label>
+      </div>
+      <footer class="footer">
+        <ul class="footer-list">
+          <li><div class="rsschool-logo"></div></li>
+          <li><span>App developer: RUnexpert</span></li>
+          <li>2021</li>
+        </ul>
+      </footer>
+    </div>
+    <!-- question pictures page end-->
     <!-- modal quit-game start-->
     <div class="modal-quit hide">
       <button class="quit-game"></button>
@@ -286,7 +421,7 @@
       </div>
     </div>
     <!-- modal quit-game end-->
-    <script src="./js/Menu.js"></script>
-    <script src="./dist/bundle.js"></script>
+    <!-- <script src="./js/Menu.js"></script> -->
+    <script src="./bundle.js"></script>
   </body>
 </html>
